@@ -1,0 +1,995 @@
+:root {
+  --primary-color: #F96900;
+  --header-color: #EFEFEF;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+p, a {
+  font-size: 1.8rem;
+  cursor: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  cursor: none;
+}
+
+.wrapper {
+  margin: 2.8em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  cursor: none;
+}
+
+.cursor {
+  width: 30px;
+  height: 30px;
+  background-color: orangered;
+  border: 1px solid #F96900;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  animation: cursorAnim 0.5s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes cursorAnim {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.7);
+  }
+}
+@keyframes cursorAnim2 {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.4);
+  }
+}
+@keyframes cursorAnim3 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(3);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.expand {
+  animation: cursorAnim3 0.5s forwards;
+  border: 1px solid #F96900;
+}
+
+body.dark {
+  background-color: #1D1D1D;
+  color: white;
+}
+
+body.dark .bg {
+  background: url(/assets/black_background.svg) no-repeat center center;
+  background-size: cover;
+  height: 1200px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+body.dark header .wrapper {
+  background-color: rgba(31, 31, 31, 0.6862745098);
+  box-shadow: 1px 5px 4px 2px rgba(17, 17, 17, 0.322);
+}
+body.dark header .wrapper nav ul li a {
+  color: #ffffff;
+}
+body.dark header .wrapper .right .checkbox-label {
+  background-color: #ffffff;
+}
+body.dark header .wrapper .right .checkbox-label .ball {
+  background-color: #000000;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+body.dark #scroll {
+  width: 40px;
+  height: 80px;
+  border: 3px solid #ffffff;
+  border-radius: 60px;
+  position: relative;
+}
+body.dark #scroll::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  border-radius: 50%;
+  opacity: 1;
+  animation: wheel 2s infinite;
+  -webkit-animation: wheel 2s infinite;
+}
+@keyframes wheel {
+  to {
+    opacity: 0;
+    top: 60px;
+  }
+}
+body.dark .wrapper .work_flow .flow:hover {
+  background-color: #1e1e1e;
+  cursor: pointer;
+  border-radius: 1em;
+}
+body.dark #tech .wrapper .tech_icon a {
+  color: white;
+}
+body.dark #tech .wrapper .tech_icon img {
+  box-shadow: 2px 2px 3px 2px rgb(28, 28, 28);
+}
+body.dark .projects .wrapper .projects_flow .project_flow {
+  background-color: #1D1D1D;
+}
+body.dark .projects .wrapper .projects_flow .project_flow .round_img {
+  width: 100%;
+  border-radius: 0.3em;
+  box-shadow: 2px 3px 3px 2px #171717;
+}
+body.dark .testimonials .wrapper .testimonial-container {
+  box-shadow: 2px 3px 3px 2px #171717;
+  color: white;
+}
+body.dark footer {
+  background-color: #1d1d1d;
+}
+body.dark footer #copy {
+  background-color: #1b1b1b;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  outline: 1px solid var(--primary-color);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5.8em;
+}
+header .wrapper {
+  position: fixed;
+  width: 90%;
+  z-index: 1000;
+  background-color: var(--header-color);
+  padding: 1em 2.8em;
+  border-radius: 5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 5px 4px 2px rgba(128, 128, 128, 0.186);
+}
+header .wrapper img {
+  width: 90%;
+}
+header .wrapper nav {
+  display: none;
+}
+header .wrapper .header_cta {
+  color: white;
+  font-weight: 500;
+  background-color: var(--primary-color);
+  padding: 0.5em 0.9em;
+  border-radius: 2em;
+}
+header .wrapper .header_cta:hover {
+  background-color: #fb8633;
+}
+header .wrapper .right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.3em;
+}
+header .wrapper .right .checkbox {
+  opacity: 0;
+  position: absolute;
+}
+header .wrapper .right .checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .wrapper .right .fa-moon {
+  color: #f1c40f;
+}
+header .wrapper .right .fa-sun {
+  color: #f39c12;
+}
+header .wrapper .right .checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+header .wrapper .right .checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+header .wrapper .right a img {
+  width: 2em;
+  cursor: pointer;
+}
+
+.bg {
+  background: url(/img/background.png) no-repeat center center;
+  background-size: cover;
+  height: 1200px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+main {
+  padding-top: 8em;
+}
+main .wrapper {
+  margin-top: -4em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 9em;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10em;
+  overflow: hidden;
+}
+main .wrapper .container {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  position: absolute;
+  z-index: -1;
+  top: 8em;
+  --circleDiameter: 38em;
+  --planets: calc(var(--circleDiameter) / 8);
+}
+main .wrapper .hero-circle {
+  position: relative;
+  top: 7px;
+  left: 5px;
+  width: var(--circleDiameter);
+  height: var(--circleDiameter);
+}
+main .wrapper .hero-rotate {
+  position: relative;
+  top: -7px;
+  left: -7px;
+  width: 100%;
+  height: 100%;
+  border: 3px rgba(207, 207, 207, 0.6078431373);
+  border-style: dashed;
+  border-radius: 50%;
+  animation: rotate 30s linear infinite;
+}
+main .wrapper .planet {
+  position: absolute;
+  width: var(--planets);
+  aspect-ratio: 1;
+  animation: maintain 30s linear infinite;
+}
+main .wrapper .planet:nth-child(1) {
+  top: calc(-1 * var(--planets) / 2);
+  left: calc(var(--circleDiameter) / 2 - var(--planets) / 2 - 5px);
+}
+main .wrapper .planet:nth-child(2) {
+  top: calc(var(--circleDiameter) / 2 - var(--planets) / 2 - 5px);
+  right: calc(-1 * var(--planets) / 2);
+}
+main .wrapper .planet:nth-child(3) {
+  top: calc(var(--circleDiameter) / 2 - var(--planets) / 2 - 5px);
+  left: calc(-1 * var(--planets) / 2);
+}
+main .wrapper .planet:nth-child(4) {
+  left: calc(var(--circleDiameter) / 2 - var(--planets) / 2 - 5px);
+  bottom: calc(-1 * var(--planets) / 2);
+}
+main .wrapper .planet > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  animation: scale 1s linear infinite alternate;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes maintain {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+main .wrapper ul {
+  margin-top: 9em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.2em;
+}
+main .wrapper ul li {
+  cursor: pointer;
+}
+main .wrapper ul img {
+  width: 1.5em;
+}
+main .wrapper ul li > a {
+  display: inline-block;
+  transition: 0.5s;
+}
+main .wrapper ul li > a:hover {
+  transform: scale(1.1) translateY(-15px);
+}
+main .wrapper .mouse {
+  width: 40px;
+  height: 80px;
+  border: 3px solid rgba(51, 51, 51, 0.5647058824);
+  border-radius: 60px;
+  position: relative;
+}
+main .wrapper .mouse::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  border-radius: 50%;
+  opacity: 1;
+  animation: wheel 2s infinite;
+  -webkit-animation: wheel 2s infinite;
+}
+@keyframes wheel {
+  to {
+    opacity: 0;
+    top: 60px;
+  }
+}
+main .wrapper .hero {
+  text-align: center;
+  margin-top: 16.5em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5em;
+  align-items: center;
+  z-index: 1;
+}
+main .wrapper .hero .intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 0.5em;
+}
+main .wrapper .hero h2 {
+  font-size: 2.5em;
+  font-weight: 500;
+}
+main .wrapper .hero h2 span img {
+  width: 4%;
+  margin-right: 0.15em;
+}
+main .wrapper .hero .intro:nth-of-type(1) {
+  align-items: center;
+}
+main .wrapper .hero h1 {
+  font-size: 3.25em;
+  font-weight: 600;
+  letter-spacing: 0.112em;
+}
+main .wrapper .hero h1 span {
+  color: #FC472E;
+}
+main .wrapper .hero p {
+  align-self: center;
+  font-weight: 500;
+}
+main .wrapper .hero .intro_cta {
+  color: white;
+  font-weight: 500;
+  background-color: var(--primary-color);
+  padding: 0.7em 1.1em;
+  border-radius: 2em;
+  box-shadow: 0 10px 20px rgba(246, 90, 70, 0.8549019608), 0 6px 6px rgba(252, 70, 46, 0.2745098039), 0 0 100px -10px #FC472E;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+main .wrapper .hero .intro_cta:hover {
+  background-color: #ff2828;
+  transform: scale(1.012) translateY(-5px);
+}
+
+section .work_flow {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+section .work_flow .flow {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 5em 2.5em;
+}
+section .work_flow .flow img {
+  width: 22%;
+}
+section .work_flow .flow .icon_intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2em;
+}
+section .work_flow .flow .icon_intro h2 {
+  font-size: 1.8rem;
+}
+section .work_flow .flow p {
+  width: 60%;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+section .work_flow .flow:hover {
+  background-color: rgba(217, 217, 217, 0.2549019608);
+  cursor: pointer;
+  border-radius: 1em;
+}
+
+.about .wrapper {
+  margin-top: 15em;
+}
+.about .wrapper .about_me {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5em;
+}
+.about .wrapper .about_me .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about .wrapper .about_me .left img {
+  width: 80%;
+  border-radius: 2em;
+}
+.about .wrapper .about_me .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.about .wrapper .about_me .right h2 {
+  font-size: 2.7rem;
+  text-decoration: underline;
+}
+.about .wrapper .about_me .right p {
+  margin-top: 2.5em;
+  line-height: 2.5em;
+  font-size: 1.7rem;
+}
+.about .wrapper .about_me .right p span {
+  font-weight: 700;
+  color: #ff2828;
+}
+
+.tech .wrapper {
+  margin-top: 15em;
+  margin-bottom: 15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8.5em;
+}
+.tech .wrapper h2 {
+  font-size: 2.7rem;
+  text-decoration: underline;
+}
+.tech .wrapper .tech_icon {
+  width: 95%;
+  display: grid;
+  grid-gap: 25px;
+  grid-row-gap: 60px;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+.tech .wrapper .tech_icon a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+  transition: 0.5s;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+.tech .wrapper .tech_icon a:hover {
+  transform: scale(1.0125) translateY(-15px);
+}
+.tech .wrapper .tech_icon img {
+  width: 50%;
+  margin: auto;
+  align-self: center;
+  box-shadow: 2px 2px 3px 2px rgba(246, 246, 246, 0.457);
+}
+
+.testimonials .wrapper h2 {
+  font-size: 2.7rem;
+  text-decoration: underline;
+  text-align: center;
+  margin-bottom: 3em;
+}
+.testimonials .wrapper .testimonial-container {
+  margin-top: 20em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 2rem;
+  box-shadow: 3px 3px 5px 10px rgba(246, 246, 246, 0.457);
+  color: #333;
+  border-radius: 15px;
+  margin: 20px auto;
+  padding: 50px 80px;
+  min-height: 430px;
+  position: relative;
+}
+.testimonials .wrapper .testimonial-container .stars {
+  font-size: 14px;
+}
+.testimonials .wrapper .testimonial-container .testimonial {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  height: 100%;
+  line-height: 28px;
+  margin: 0;
+}
+.testimonials .wrapper .testimonial-container .user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.testimonials .wrapper .testimonial-container .user .user-image {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.testimonials .wrapper .testimonial-container .user .user-details {
+  text-align: center;
+}
+.testimonials .wrapper .testimonial-container .user .username {
+  margin: 0;
+  font-size: 14px;
+}
+.testimonials .wrapper .testimonial-container .user .role {
+  margin: 0;
+  font-size: 12px;
+}
+.testimonials .wrapper .testimonial-container .progress-dots {
+  display: flex;
+  gap: 5px;
+}
+.testimonials .wrapper .testimonial-container .progress-dot {
+  width: 5px;
+  height: 5px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+.testimonials .wrapper .testimonial-container .progress-dot.active {
+  background-color: #555;
+}
+.testimonials .wrapper .testimonial-container .btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eee;
+  font-size: 10px;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+.testimonials .wrapper .testimonial-container .btn:hover {
+  background-color: #eee;
+}
+.testimonials .wrapper .testimonial-container #btn-prev {
+  left: 25px;
+}
+.testimonials .wrapper .testimonial-container #btn-next {
+  right: 25px;
+}
+
+footer {
+  margin-top: 20em;
+  background-color: rgba(239, 239, 239, 0.2745098039);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3em;
+  padding: 3em;
+  padding-top: 5em;
+}
+footer p {
+  text-align: center;
+}
+footer ul {
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.2em;
+}
+footer ul li {
+  cursor: pointer;
+}
+footer ul img {
+  width: 1.5em;
+}
+footer ul li > a {
+  display: inline-block;
+  transition: 0.5s;
+}
+footer ul li > a:hover {
+  transform: scale(1.1) translateY(-15px);
+}
+footer .copywrite {
+  margin-top: 2em;
+  margin-bottom: 0;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+@media only screen and (min-width: 700px) {
+  main .wrapper .container {
+    display: grid;
+    width: 100%;
+    place-items: center;
+    position: absolute;
+    z-index: -1;
+    top: 8em;
+    --circleDiameter: 50em;
+    --planets: calc(var(--circleDiameter) / 8);
+  }
+  main .wrapper .hero, main .wrapper ul, main .wrapper .mouse {
+    margin-top: 20em;
+  }
+  main .wrapper .hero {
+    gap: 5em;
+  }
+  main .wrapper .hero .intro h2 {
+    font-size: 2.8rem;
+  }
+  main .wrapper .hero .intro h1 {
+    font-size: 4.2rem;
+  }
+  main .wrapper ul {
+    margin-top: 10em;
+  }
+  main .wrapper .mouse {
+    margin-top: -2em;
+  }
+  section {
+    margin-top: -1.8em;
+    margin-bottom: 12em;
+  }
+  section .work_flow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  section .work_flow .flow {
+    width: 100%;
+    padding: 5em 2.5em;
+  }
+  section .work_flow .flow img {
+    width: 45%;
+  }
+  section .work_flow .flow p {
+    width: 100%;
+  }
+  .about .wrapper .about_me .right {
+    width: 100%;
+  }
+  .about .wrapper .about_me .right p {
+    text-align: center;
+    width: 80%;
+  }
+  footer p {
+    width: 25em;
+    line-height: 1.9;
+  }
+}
+@media only screen and (min-width: 900px) {
+  header .wrapper nav {
+    display: block;
+  }
+  header .wrapper nav ul {
+    margin-left: 8em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5em;
+  }
+  header .wrapper nav ul li a {
+    color: black;
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+  }
+  header .wrapper nav ul li a:hover {
+    text-decoration: underline;
+  }
+  header .wrapper nav ul li a.active {
+    color: var(--primary-color);
+  }
+  main .wrapper ul {
+    flex-direction: column;
+    position: absolute;
+    top: 20%;
+    right: 4%;
+  }
+  main .wrapper ul li > a:hover {
+    transform: scale(1.3) translateY(-5px);
+    cursor: pointer;
+  }
+  main .wrapper .mouse {
+    margin-top: 14em;
+  }
+  section .wrapper .flow {
+    width: 100%;
+    padding: 5em 2.5em;
+  }
+  section .wrapper .flow img {
+    width: 32%;
+  }
+  section .wrapper .flow p {
+    width: 100%;
+  }
+  .about .wrapper .about_me {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+  }
+  .about .wrapper .about_me .left {
+    width: 40%;
+  }
+  .about .wrapper .about_me .left img {
+    width: 100%;
+  }
+  .about .wrapper .about_me .right {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+  }
+  .about .wrapper .about_me .right p {
+    margin-top: 1em;
+    text-align: start;
+    width: 100%;
+  }
+  .testimonials .wrapper h2 {
+    font-size: 2.7rem;
+    text-decoration: underline;
+    text-align: center;
+    margin-bottom: 3em;
+  }
+  .testimonials .wrapper .testimonial-container {
+    max-width: 70%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .wrapper {
+    max-width: 1400px;
+    margin: 2em auto;
+  }
+  header .wrapper {
+    width: 90%;
+  }
+  main:before {
+    content: "";
+    position: absolute;
+    background: url("/img/line_icon.svg") no-repeat;
+    width: 200px;
+    height: 20px;
+    top: 50%;
+    left: -8px;
+    opacity: 70%;
+  }
+  main .wrapper {
+    position: relative;
+  }
+  main .wrapper .container {
+    display: grid;
+    width: 100%;
+    place-items: center;
+    position: absolute;
+    z-index: -1;
+    top: 8em;
+    --circleDiameter: 50em;
+    --planets: calc(var(--circleDiameter) / 7.5);
+  }
+  main .wrapper .hero, main .wrapper ul, main .wrapper .mouse {
+    margin-top: 20em;
+  }
+  main .wrapper .hero {
+    margin-top: 21em;
+  }
+  main .wrapper .hero .intro h2 {
+    font-size: 2.8rem;
+  }
+  main .wrapper .hero .intro h1 {
+    font-size: 4.2rem;
+  }
+  main .wrapper ul {
+    top: 5%;
+    right: 4%;
+  }
+  main .wrapper ul li > a:hover {
+    transform: scale(1.1) translatex(-15px);
+  }
+  main .wrapper .mouse {
+    margin-top: 20em;
+  }
+  section .wrapper {
+    margin-top: 18em;
+    width: 90%;
+  }
+  section .wrapper .flow {
+    width: 100%;
+    padding: 5em 2.5em;
+  }
+  section .wrapper .flow img {
+    width: 25%;
+  }
+  section .wrapper .flow p {
+    width: 100%;
+  }
+  .about {
+    margin-bottom: 20em;
+  }
+  .about .wrapper .about_me {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+  }
+  .about .wrapper .about_me .left {
+    width: 40%;
+  }
+  .about .wrapper .about_me .left img {
+    width: 90%;
+  }
+  .about .wrapper .about_me .right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+  }
+  .about .wrapper .about_me .right p {
+    text-align: start;
+    width: 100%;
+  }
+  .about .wrapper .about_me .right .strok_line {
+    width: 100%;
+    height: 6.2px;
+    background-color: var(--primary-color);
+  }
+  .testimonials {
+    margin-top: 22em;
+  }
+}/*# sourceMappingURL=main.css.map */
